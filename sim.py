@@ -14,7 +14,7 @@ I = np.array([[1.,0.,0.], # Moment of inertia matrix
               [0.,0.,1.]]) 
 
 # Initial state
-r     = np.array([0, 0, 0, 10.0])  # Position
+r     = np.array([0, 0, 0, 7.0])  # Position
 r_dot = np.array([0, 0, 0, 1.0])  # Velocity
 omega     = (np.random.random(3)-0.5)*0.1 # Angular velocity
 q = np.array([1.0, 0.0, 0.0, 0.0]) # Attitude quaternion
@@ -111,11 +111,13 @@ def on_draw():
     # Draw the shadow
     glPushMatrix()
     glTranslatef(r[1],r[2],0)
-    glColor3f(0.8,0.8,0.8)
+    glColor3f(0.6,0.6,0.6)
     glLineWidth(30)
-    glBegin(GL_LINES)
-    glVertex3f(-0.2,0,0)
-    glVertex3f(0.2,0,0)
+    glBegin(GL_TRIANGLE_FAN)
+    glVertex3f(0,0,0)
+    for i in range(101):
+        angle = -i*2*math.pi/100.0
+        glVertex3f(math.sin(angle),math.cos(angle),0)
     glEnd()
     glPopMatrix()
 

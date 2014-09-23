@@ -3,7 +3,7 @@ import math
 import quaternion
 
 # Given the attitude quaternion and the position vector, set the inputs of the motors
-# TODO PID? LPQ?
+# TODO. This is a placeholder controller. Imlement PID? LPQ?
 # all temporary, using pitch, roll, yaw
 def inputs(actual_q, altitude, target_q, target_altitude):
     inpt = np.ones(4)*9.8/4 # TODO what range should these be in?
